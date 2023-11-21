@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: 'Roboto';
+    box-sizing: border-box;
+}
+
+
+/* Margenes generales */
+.m-1{
+    margin: 1rem;
+}
+.m-2{
+    margin: 1.5rem;
+}
+
+.m-3{
+    margin: 2rem;
+}
+.m-5{
+    margin: 1.5rem;
+}
+
+/* Margenes verticales */
+.my-1{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Margenes horizontales */
+.mx-2{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/* Padding generales */
+.p-1{
+    padding: 1rem;
+}
+.p-2{
+    padding: 1.5rem;
+}
+.px-1{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Estilos de fuentes */
+.text-bold{
+    font-weight: 800;
+}
+
+/* Estilos flex */
+.flex{
+    display: flex;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.align-center{
+    align-items: center;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+.gap-1{
+    gap: 1rem;
+}
+.gap-2{
+    gap: 10px;
+}
+
+
+
+.w-70{
+    width: 70%;
+}
+
+
+/* Redondeados */
+.rounded{
+    border-radius: 20px;
+}
+
+.icon {
+  display: inline;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: black;
+}
+
+
+/* Estilos navbar */
+header{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 10000;
+}
+#navbar-pinterest{
+    display: flex;
+    gap: 1rem;
+}
+#navbar-pinterest .finder-container{
+    background-color: #e9e8e8;
+    border-width: 0px;
+    display: flex;
+}
+
+.finder {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border-color: transparent;
+    color: #5f5e5e;
+    flex-grow: 1;
+}
+
+
+.finder:focus{
+    outline: none;
+}
+
+
+.btn-black{
+    color: white;
+    background-color: #101011;
+}
+
+#pinterest-icon svg {
+    fill: #e70022;
+}
+
+
+.badge{
+    background-color: #e70022;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px;
+    border-radius: 20px;
+}
+
+#notifications {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+#notifications .badge{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+
+#notifications svg{
+    fill: #5f5e5e;;
+}
+
+#message svg{
+    fill: #5f5e5e;
+}
+
+#profile-img button{
+    background-color: #e9e8e8;
+    border-width: 0;
+    border-radius: 2rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+}
+
+
+/* Contenido principal */
+.container{
+    max-width: 1440px;
+    margin: 0 auto
+}
+main{
+    margin-top: 6rem !important;
+}
+
+.card-image{
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-image img{
+    width: 100%;
+    height: 100%;
+}
+.card-image .card-overlay{
+    display: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.opacity {
+    opacity: 0.3;
+    background-color: black !important;
+}
+
+.save-card button{
+    background-color: #e70022ff;
+    border-width: 0;
+    color: white;
+    cursor:pointer;
+    padding: 0.8rem;
+}
+
+.actions-card a{
+    background-color: white;
+    display: inline-flex;
+    margin: 0 0.2rem;
+    clip-path: circle();
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.8;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image:hover .card-overlay{
+    display: flex;
+    z-index: 1000;
+}

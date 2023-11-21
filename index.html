@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Pinterest</title>
+</head>
+<body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+        <defs>
+            <!-- icono share -->
+            <symbol id="icon-share" viewBox="0 0 20 20">
+            <path d="M9 13h2v-9h2l-3-4-3 4h2v9zM17 7h-3v2h2v9h-12v-9h2v-2h-3c-0.553 0-1 0.447-1 1v11c0 0.552 0.447 1 1 1h14c0.553 0 1-0.448 1-1v-11c0-0.552-0.447-1-1-1z"></path>
+            </symbol>
+
+            <!-- Icono dots -->
+            <symbol id="icon-dots" viewBox="0 0 20 20">
+            <path d="M10.001 7.8c-1.215 0-2.201 0.985-2.201 2.2s0.986 2.2 2.201 2.2c1.215 0 2.199-0.985 2.199-2.2s-0.984-2.2-2.199-2.2zM3.001 7.8c-1.215 0-2.201 0.985-2.201 2.2s0.986 2.2 2.201 2.2c1.215 0 2.199-0.986 2.199-2.2s-0.984-2.2-2.199-2.2zM17.001 7.8c-1.215 0-2.201 0.985-2.201 2.2s0.986 2.2 2.201 2.2c1.215 0 2.199-0.985 2.199-2.2s-0.984-2.2-2.199-2.2z"></path>
+            </symbol>
+            
+        </defs>
+    </svg>
+    <header class="container">
+        <nav id="navbar-pinterest" class="my-1 mx-2 justify-between align-center">
+            <!-- Icono de Pinterest -->
+
+            <a href="https://www.pinterest.com" id="pinterest-icon">
+                <svg height="24" width="24" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img"><path d="M0 12c0 5.123 3.211 9.497 7.73 11.218-.11-.937-.227-2.482.025-3.566.217-.932 1.401-5.938 1.401-5.938s-.357-.715-.357-1.774c0-1.66.962-2.9 2.161-2.9 1.02 0 1.512.765 1.512 1.682 0 1.025-.653 2.557-.99 3.978-.281 1.189.597 2.159 1.769 2.159 2.123 0 3.756-2.239 3.756-5.471 0-2.861-2.056-4.86-4.991-4.86-3.398 0-5.393 2.549-5.393 5.184 0 1.027.395 2.127.889 2.726a.36.36 0 0 1 .083.343c-.091.378-.293 1.189-.332 1.355-.053.218-.173.265-.4.159-1.492-.694-2.424-2.875-2.424-4.627 0-3.769 2.737-7.229 7.892-7.229 4.144 0 7.365 2.953 7.365 6.899 0 4.117-2.595 7.431-6.199 7.431-1.211 0-2.348-.63-2.738-1.373 0 0-.599 2.282-.744 2.84-.282 1.084-1.064 2.456-1.549 3.235C9.584 23.815 10.77 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12"></path></svg>
+            </a>
+
+            <a class="btn-black text-bold p-1 rounded">Home</a>
+
+            <a>Create
+                <!-- Flecha hacia abajo -->
+                <span></span>
+            </a>
+
+
+            <!-- Barra de busqueda -->
+            <div class="w-70 rounded px-1 flex align-center finder-container">
+                <svg class="gUZ ztu U9O kVc" height="16" width="16" viewBox="0 0 24 24" aria-label="Search icon" role="img"><path d="M10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6m13.12 2.88-4.26-4.26A9.842 9.842 0 0 0 20 10c0-5.52-4.48-10-10-10S0 4.48 0 10s4.48 10 10 10c1.67 0 3.24-.41 4.62-1.14l4.26 4.26a3 3 0 0 0 4.24 0 3 3 0 0 0 0-4.24"></path></svg>
+
+                <input type="search" class="finder p-1" placeholder="Search">
+            </div>
+
+
+            <!-- Icono de notificaciones -->
+            <div id="notifications">
+                <svg class="gUZ ztu U9O kVc" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img">
+                    <path d="M12 24c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm7-10.83c1.58 1.52 2.67 3.55 3 5.83H2c.33-2.28 1.42-4.31 3-5.83V7c0-3.87 3.13-7 7-7s7 3.13 7 7v6.17z"></path>
+                </svg>
+                <span class="badge">+99</span>
+            </div>
+
+            <div id="message">
+                <svg height="24" width="24" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img"><path d="M18 12.5a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 18 12.5m-6 0a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 12 12.5m-6 0a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 6 12.5M12 0C5.925 0 1 4.925 1 11c0 2.653.94 5.086 2.504 6.986L2 24l5.336-3.049A10.93 10.93 0 0 0 12 22c6.075 0 11-4.925 11-11S18.075 0 12 0"></path></svg>
+            </div>
+
+            <div id="profile-img">
+                <button>J</button>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="flex justify-between gap-2 m-3">
+
+            <section class="flex flex-column gap-2">
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/1.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/2.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/3.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/4.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/5.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/6.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/7.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/8.jpg" class="">
+                </div>
+            </section>
+
+            <section class="flex flex-column gap-2">
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/9.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/10.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/11.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/12.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/13.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/14.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/15.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/16.jpg" class="">
+                </div>
+            </section>
+
+            <section class="flex flex-column gap-2">
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/17.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/18.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/19.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/20.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/21.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/22.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/23.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/24.jpg" class="">
+                </div>
+            </section>
+
+            <section class="flex flex-column gap-2">
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/25.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/26.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/27.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/28.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/29.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/30.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/31.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/32.jpg" class="">
+                </div>
+            </section>
+
+            <section class="flex flex-column gap-2">
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/33.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/34.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/35.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/36.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/37.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/38.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/39.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/40.jpg" class="">
+                </div>
+            </section>
+
+            <section class="flex flex-column gap-2">
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/41.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/42.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/43.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/44.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/45.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/46.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/47.jpg" class="">
+                </div>
+                <div class="card-image">
+                    <div class="card-overlay opacity"></div>
+                    <div class="card-overlay">
+                        <div class="save-card">
+                            <button class="rounded">Save</button>
+                        </div>
+                        <div class="actions-card">
+                            <a><svg class="icon"><use xlink:href="#icon-share"></use></svg></a>
+                            <a><svg class="icon"><use xlink:href="#icon-dots"></use></svg></a>
+                        </div>
+                    </div>
+                    <img src="img/48.jpg" class="">
+                </div>
+            </section>
+        </section>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <defs>
+    </defs>
+</body>
+</html>
+
