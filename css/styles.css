@@ -191,6 +191,7 @@ main{
     margin-top: 6rem !important;
 }
 
+
 .card-image{
     position: relative;
     border-radius: 20px;
@@ -242,4 +243,20 @@ main{
 .card-image:hover .card-overlay{
     display: flex;
     z-index: 1000;
+}
+
+@media (max-width: 1000px){
+
+    main section{
+        flex: 0 0 calc(25% - 10px);
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 520px){
+
+    main section{
+        flex: 0 0 calc(33.33% - 10px);
+        flex-wrap: wrap;
+    }
 }
